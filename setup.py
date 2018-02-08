@@ -2,6 +2,8 @@ from setuptools import setup, find_packages
 import os
 from unetschema import __version__ as version
 
+from distutils.sysconfig import get_python_lib
+
 requires = [
     'protobuf',
     'jsonschema',

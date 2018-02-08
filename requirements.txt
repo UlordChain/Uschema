@@ -1,3 +1,4 @@
 protobuf==3.2.0
 jsonschema==2.6.0
 ecdsa==0.13
+--no-binary=protobuf protobuf==3.2.0
