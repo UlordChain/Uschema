@@ -11,7 +11,7 @@ requires = [
 base_dir = os.path.join(os.path.abspath(os.path.dirname(__file__)), "unetschema")
 setup(
     name="unetschema",
-    description="Protobuf schema for claims on the UC  blockchain",
+    description="Protobuf schema for claims on the UlordChain  blockchain",
     version=version,
     author="liuqiping@unet.io",
     install_requires=requires,
