@@ -1,0 +1,6 @@
+
+*.pyc
+*.txt
+unetschema.egg-info/PKG-INFO
+*.xml
+*.iml
