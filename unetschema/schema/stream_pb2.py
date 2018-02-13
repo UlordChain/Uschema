@@ -25,8 +25,6 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   ,
   dependencies=[metadata__pb2.DESCRIPTOR,source__pb2.DESCRIPTOR,])
 
-
-
 _STREAM_VERSION = _descriptor.EnumDescriptor(
   name='Version',
   full_name='Stream.Version',

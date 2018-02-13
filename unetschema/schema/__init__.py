@@ -18,18 +18,18 @@ VERSION_NAMES = {
     4: V_0_1_0
 }
 
-BNT = "BNT"
+UT = "UT"
 BTC = "BTC"
 USD = "USD"
 
 CURRENCY_MAP = {
-    BNT: 1,
+    UT: 1,
     BTC: 2,
     USD: 3
 }
 
 CURRENCY_NAMES = {
-    1: BNT,
+    1: UT,
     2: BTC,
     3: USD
 }
