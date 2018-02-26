@@ -13,7 +13,7 @@ setup(
     name="unetschema",
     description="Protobuf schema for claims on the UlordChain  blockchain",
     version=version,
-    author="liuqiping@unet.io",
+    author="qipingsmile@gmail.com",
     install_requires=requires,
     packages=find_packages(exclude=['tests'])
 )
