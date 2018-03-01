@@ -91,15 +91,15 @@ SCRIPT_ADDRESS = 5
 #These parameters are in this file: unet/chainparams.cpp
 ADDRESS_PREFIXES = {
     "unet_main": {
-        PUBKEY_ADDRESS: 130,#36, #
-        SCRIPT_ADDRESS: 125 #204
+        PUBKEY_ADDRESS: 68,
+        SCRIPT_ADDRESS: 63
     },
     "unet_regtest": {
-        PUBKEY_ADDRESS: 66, #111
-        SCRIPT_ADDRESS: 239 #196
+        PUBKEY_ADDRESS: 140,
+        SCRIPT_ADDRESS: 120
     },
     "unet_testnet": {
-        PUBKEY_ADDRESS: 130, #111
-        SCRIPT_ADDRESS: 125  #196
+        PUBKEY_ADDRESS: 130, 
+        SCRIPT_ADDRESS: 125
     },
 }
