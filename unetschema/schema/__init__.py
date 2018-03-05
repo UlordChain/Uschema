@@ -18,18 +18,18 @@ VERSION_NAMES = {
     4: V_0_1_0
 }
 
-UTT = "UTT"
+ULD = "ULD"
 BTC = "BTC"
 USD = "USD"
 
 CURRENCY_MAP = {
-    UTT: 1,
+    ULD: 1,
     BTC: 2,
     USD: 3
 }
 
 CURRENCY_NAMES = {
-    1: UTT,
+    1: ULD,
     2: BTC,
     3: USD
 }
@@ -88,17 +88,17 @@ assert len(B58_CHARS) == 58
 PUBKEY_ADDRESS = 0
 SCRIPT_ADDRESS = 5
 
-#These parameters are in this file: unet/chainparams.cpp
+#These parameters are in this file: ulord/src/chainparams.cpp
 ADDRESS_PREFIXES = {
-    "unet_main": {
+    "ulord_main": {
         PUBKEY_ADDRESS: 68,
         SCRIPT_ADDRESS: 63
     },
-    "unet_regtest": {
+    "ulord_regtest": {
         PUBKEY_ADDRESS: 140,
         SCRIPT_ADDRESS: 120
     },
-    "unet_testnet": {
+    "ulord_testnet": {
         PUBKEY_ADDRESS: 130, 
         SCRIPT_ADDRESS: 125
     },
