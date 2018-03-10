@@ -15,7 +15,7 @@ def validate_address_prefix(addr_bytes):
         raise InvalidAddress("Invalid address prefix: %.2X" % ord(addr_bytes[0]))
 
 
-def validate_unet_address_bytes(addr_bytes):
+def validate_ulord_address_bytes(addr_bytes):
     validate_address_length(addr_bytes)
     validate_address_prefix(addr_bytes)
     validate_b58_checksum(addr_bytes)
@@ -24,12 +24,12 @@ def validate_unet_address_bytes(addr_bytes):
 
 def decode_address(v):
     """decode and validate a b58 address"""
-    return validate_unet_address_bytes(b58decode(v))
+    return validate_ulord_address_bytes(b58decode(v))
 
 
 def encode_address(addr_bytes):
     """validate and encode an address as b58"""
-    v = validate_unet_address_bytes(addr_bytes)
+    v = validate_ulord_address_bytes(addr_bytes)
     return b58encode(v)
 
 

@@ -54,12 +54,12 @@ CLAIM_TYPE_NAMES = {
 }
 
 #TODO: modify unet_sd_hash_length value, What is the value?
-unet_SD_HASH = "unet_sd_hash"
-unet_SD_HASH_LENGTH = 48
+UNET_SD_HASH = "unet_sd_hash"
+UNET_SD_HASH_LENGTH = 48
 
 
 SOURCE_TYPES = {
-    unet_SD_HASH: 1
+    UNET_SD_HASH: 1
 }
 
 NIST256p = "NIST256p"
@@ -91,8 +91,8 @@ SCRIPT_ADDRESS = 5
 #These parameters are in this file: ulord/src/chainparams.cpp
 ADDRESS_PREFIXES = {
     "ulord_main": {
-        PUBKEY_ADDRESS: 68,
-        SCRIPT_ADDRESS: 63
+        PUBKEY_ADDRESS: 140, #68,
+        SCRIPT_ADDRESS: 120  #63
     },
     "ulord_regtest": {
         PUBKEY_ADDRESS: 140,

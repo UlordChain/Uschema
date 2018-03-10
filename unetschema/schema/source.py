@@ -1,6 +1,6 @@
 from copy import deepcopy
 from unetschema.schema import source_pb2 as source_pb, VERSION_MAP
-from unetschema.schema import SOURCE_TYPES, unet_SD_HASH_LENGTH
+from unetschema.schema import SOURCE_TYPES, UNET_SD_HASH_LENGTH
 from unetschema.schema.schema import Schema
 from unetschema.error import InvalidSourceHashLength
 
@@ -10,7 +10,7 @@ class Source(Schema):
     def load(cls, message):
         _source = deepcopy(message)
         sd_hash = _source.pop('source')
-        assert len(sd_hash) == unet_SD_HASH_LENGTH, InvalidSourceHashLength(len(sd_hash))
+        assert len(sd_hash) == UNET_SD_HASH_LENGTH, InvalidSourceHashLength(len(sd_hash))
         _message_pb = source_pb.Source()
         _message_pb.version = VERSION_MAP[_source.pop("version")]
         _message_pb.sourceType = SOURCE_TYPES[_source.pop('sourceType')]
