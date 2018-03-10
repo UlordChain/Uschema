@@ -91,12 +91,12 @@ SCRIPT_ADDRESS = 5
 #These parameters are in this file: ulord/src/chainparams.cpp
 ADDRESS_PREFIXES = {
     "ulord_main": {
-        PUBKEY_ADDRESS: 140, #68,
-        SCRIPT_ADDRESS: 120  #63
+        PUBKEY_ADDRESS: 130, #68,
+        SCRIPT_ADDRESS: 125  #63
     },
     "ulord_regtest": {
-        PUBKEY_ADDRESS: 140,
-        SCRIPT_ADDRESS: 120
+        PUBKEY_ADDRESS: 130,
+        SCRIPT_ADDRESS: 125
     },
     "ulord_testnet": {
         PUBKEY_ADDRESS: 130, 
