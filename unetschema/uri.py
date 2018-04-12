@@ -13,6 +13,23 @@ CLAIM_ID_MAX_LENGTH = 40
 CHANNEL_NAME_MIN_LENGTH = 1
 
 
+
+"""
+URI:
+    Limited attributes:
+        ['name', 'claim_sequence', 'bid_position', 'claim_id', 'path']
+    
+    Function:
+        string -> URI  : from_uri_string(cls, uri_string) 
+        dict -> URI    : from_dict(cls, uri_dict)
+        URI -> dict    : to_dict(self)
+        URI -> string  : to_uri_string(self)
+    
+    refactor:
+        __str__
+        __eq__ 
+"""
+
 class URI(object):
     __slots__ = ['name', 'claim_sequence', 'bid_position', 'claim_id', 'path']
 

@@ -14,6 +14,27 @@ from unetschema.error import DecodeError
 from unetschema.fee import Fee
 
 
+"""
+1. dict      (python_object_dict)
+2. ClaimDict (python_object_class)
+3. Claim_pb     (protobuf_claim)
+4. Claim_pb_dict (python_object_dict_claim_base64encode)
+5. Claim_serialized  (hex_string)
+
+    @classmethod
+    ClaimDict.load_dict(claim_dict)               # dict     -> ClaimDict
+    ClaimDict.load_protobuf(claim_pb)             # Claim_pb -> ClaimDict
+    ClaimDict.load_protobuf_dict(claim_pb_dict)   # Claim_pb_dict -> ClaimDict
+    ClaimDict.deserialize(serialized_string)      # Claim_serialized_string -> ClaimDict
+
+    @property
+    claim_dict(self)                # ClaimDict -> dict   
+    protobuf(self)                  # ClaimDict -> Claim_pb  
+    protobuf_dict(self)             # ClaimDict -> Claim_pb_dict
+    serialized()                    # ClaimDict -> Claim_serialized_string
+
+"""
+
 class ClaimDict(OrderedDict):
     def __init__(self, claim_dict):
         if isinstance(claim_dict, claim_pb2.Claim):
@@ -21,23 +42,27 @@ class ClaimDict(OrderedDict):
                             (self.__class__.__name__, self.__class__.__name__))
         OrderedDict.__init__(self, claim_dict)
 
+    # ClaimDict -> Claim_pb_dict(Base64encode_dict)
     @property
     def protobuf_dict(self):
         """Claim dictionary using base64 to represent bytes"""
 
         return json.loads(json_format.MessageToJson(self.protobuf, True))
 
+    # ClaimDict -> Claim_pb
     @property
     def protobuf(self):
         """Claim message object"""
 
         return Claim.load(self)
 
+    # ClaimDict -> Claim_serialized_string
     @property
     def serialized(self):
         """Serialized Claim protobuf"""
 
         return self.protobuf.SerializeToString()
+
 
     @property
     def serialized_no_signature(self):
@@ -112,12 +137,14 @@ class ClaimDict(OrderedDict):
 
         return len(json.dumps(self.claim_dict))
 
+    # ClaimDict -> dict
     @property
     def claim_dict(self):
         """Claim dictionary with bytes represented as hex and base58"""
 
         return dict(encode_fields(self))
 
+    # Claim_pb_dict -> ClaimDict
     @classmethod
     def load_protobuf_dict(cls, protobuf_dict):
         """
@@ -127,11 +154,13 @@ class ClaimDict(OrderedDict):
 
         return cls(decode_b64_fields(protobuf_dict))
 
+    # Claim_pb -> ClaimDict
     @classmethod
     def load_protobuf(cls, protobuf_claim):
         """Load ClaimDict from a protobuf Claim message"""
         return cls.load_protobuf_dict(json.loads(json_format.MessageToJson(protobuf_claim, True)))
 
+    # dict -> ClaimDict
     @classmethod
     def load_dict(cls, claim_dict):
         """Load ClaimDict from a dictionary with hex and base58 encoded bytes"""
@@ -140,6 +169,7 @@ class ClaimDict(OrderedDict):
         except json_format.ParseError as err:
             raise DecodeError(err.message)
 
+    # Claim_serialized_string -> ClaimDict
     @classmethod
     def deserialize(cls, serialized):
         """Load a ClaimDict from a serialized protobuf string"""
